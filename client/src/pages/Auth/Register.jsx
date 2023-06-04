@@ -1,4 +1,6 @@
-import * as React from "react";
+// import * as React from "react";
+import React, { useState } from "react";
+
 import { useForm } from "react-hook-form";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
@@ -14,6 +16,12 @@ import { Link } from "react-router-dom";
 const theme = createTheme();
 
 export default function Register() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [passwords, setPasswords] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
+
   // const {
   //   register,
   //   handleSubmit,
@@ -84,6 +92,8 @@ export default function Register() {
             <form onSubmit={handleSubmit(onSubmit)} sx={{ mt: 1 }}>
               <TextField
                 margin="normal"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 required
                 fullWidth
                 id="user"
@@ -108,6 +118,8 @@ export default function Register() {
               />
               <TextField
                 margin="normal"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required
                 fullWidth
                 id="email"
@@ -124,6 +136,8 @@ export default function Register() {
               />
               <TextField
                 margin="normal"
+                value={passwords}
+                onChange={(e) => setPasswords(e.target.value)}
                 required
                 fullWidth
                 id="password"
@@ -138,7 +152,7 @@ export default function Register() {
                 helperText={errors.password && "Password is required"}
                 onKeyDown={handleKeyDown} // Add the onKeyDown event handler
               />
-              <TextField
+              {/* <TextField
                 margin="normal"
                 required
                 fullWidth
@@ -155,8 +169,49 @@ export default function Register() {
                 error={!!errors.conpassword}
                 helperText={errors.conpassword && errors.conpassword.message}
                 onKeyDown={handleKeyDown} // Add the onKeyDown event handler
+              /> */}
+              {/* new */}
+              <TextField
+                margin="normal"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                required
+                fullWidth
+                id="phone"
+                label="Phone Number"
+                name="phone"
+                autoFocus
+                {...register("phone", {
+                  required: true,
+                  pattern: /^[0-9]{10}$/, // Assuming you want a 10-digit phone number
+                })}
+                error={!!errors.phone}
+                helperText={
+                  errors.phone
+                    ? errors.phone.type === "required"
+                      ? "Phone number is required"
+                      : "Please enter a valid 10-digit phone number"
+                    : ""
+                }
+              />
+              <TextField
+                margin="normal"
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+                required
+                fullWidth
+                id="address"
+                label="Address"
+                name="address"
+                autoFocus
+                {...register("address", {
+                  required: true,
+                })}
+                error={!!errors.address}
+                helperText={errors.address && "Address is required"}
               />
 
+              {/* end */}
               <Button
                 type="submit"
                 fullWidth
