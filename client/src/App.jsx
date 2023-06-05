@@ -7,6 +7,7 @@ import Policy from "./pages/Policy";
 // import PagenotFound from "./pages/PagenotFound";
 import Register from "./pages/Auth/Register";
 import Pagenotfound from "./pages/Pagenotfound";
+
 function App() {
   return (
     <Router>
