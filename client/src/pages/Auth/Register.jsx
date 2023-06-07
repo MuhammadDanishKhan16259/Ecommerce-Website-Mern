@@ -37,8 +37,12 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(name, email, password, address);
-    toast.success("Register Successfully");
+    try {
+      const res = await axios.post()
+    } catch (error) {
+      console.log(error);
+      toast.error("Something Went Wrong");
+    }
   };
 
   return (
