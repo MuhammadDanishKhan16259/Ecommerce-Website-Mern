@@ -38,12 +38,27 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post()
+      const res = await axios.post("/api/v1/auth/register",
+        {
+          name,
+          email,
+          password,
+          phone,
+          address,
+        }
+      );
+      if (res.data.success) {
+        toast.success(res.data.message);
+        navigate("/login");
+      } else {
+        toast.error(res.data.message);
+      }
     } catch (error) {
       console.log(error);
       toast.error("Something Went Wrong");
     }
   };
+  // console.log(process.env.REACT_APP_API);
 
   return (
     <Layout title="Register - Ecommer App">
