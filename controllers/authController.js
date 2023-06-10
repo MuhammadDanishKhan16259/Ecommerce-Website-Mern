@@ -110,5 +110,10 @@ export const loginController = async (req, res) => {
 // export default { registerController };
 //test controller
 export const testController = (req, res) => {
-  res.send("Protected Route");
+  try {
+    res.send("Protected Route");
+  } catch (error) {
+    console.log(error);
+    res.send({ error });
+  }
 };
