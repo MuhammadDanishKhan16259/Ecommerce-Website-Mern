@@ -21,9 +21,10 @@ export const registerController = async (req, res) => {
     if (!address) {
       return res.send({ message: "Address is required" });
     }
-    //existing user
 
+    //check user
     const existingUser = await userModel.findOne({ email });
+    //existing user
     if (existingUser) {
       return res.status(200).send({
         success: false,
