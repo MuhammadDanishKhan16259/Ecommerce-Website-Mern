@@ -23,11 +23,11 @@ const Login = () => {
       });
       if (res && res.data.success) {
         toast.success(res.data && res.data.message);
-        setAuth({
-          ...auth,
-          user: res.data.user,
-          token: res.data.token,
-        });
+        // setAuth({
+        //   ...auth,
+        //   user: res.data.user,
+        //   token: res.data.token,
+        // });
         navigate("/");
       } else {
         toast.error(res.data.message);
