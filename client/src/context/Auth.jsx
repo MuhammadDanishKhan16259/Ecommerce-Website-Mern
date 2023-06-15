@@ -7,6 +7,20 @@ const AuthProvider = ({ children }) => {
     user: null,
     token: "",
   });
+
+  useEffect(() => {
+    const data = localStorage.getItem("auth");
+    if (data) {
+      const parseData = JSON.parse(data);
+      setAuth({
+        ...auth,
+        user: parseData.user,
+        token: parseData.token,
+      });
+    }
+    //eslint-disable-next-line
+  }, []);
+
   console.log("Auth context value:", auth);
   const handleSetAuth = (newAuth) => {
     console.log("Setting auth:", newAuth);
