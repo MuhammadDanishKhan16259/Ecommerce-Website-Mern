@@ -11,6 +11,7 @@ import Pagenotfound from "./pages/Pagenotfound";
 import Login from "./pages/Auth/Login";
 import Dashboard from "./pages/user/Dashboard";
 import PrivateRoute from "./components/Routes/Private";
+// import PrivateRoute from "./components/Routes/Private";
 // import PrivateRoute from "./components/Layout/Routes/Private";
 // import { AuthProvider } from "./context/Auth.jsx";
 function App() {
